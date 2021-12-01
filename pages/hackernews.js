@@ -1,11 +1,14 @@
 import Head from 'next/head';
 
+import InProgress from '../components/InProgress';
+
 export default function HackerNews() {
   return (
     <div>
       <Head>
         <title>Mike Bowman | Hacker News</title>
       </Head>
+      <InProgress />
       <header className="bg-orange-500 py-2 flex justify-between items-center">
         <div className="flex items-center">
           <img
