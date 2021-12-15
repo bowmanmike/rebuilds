@@ -2,13 +2,26 @@ import Head from 'next/head';
 
 import InProgress from '../components/InProgress';
 
+const navLinks = ['new', 'past', 'comments', 'ask', 'show', 'jobs', 'submit'];
+
+const posts = [
+  {
+    title: 'Log4jmemes.com: for those of us that need a laugh',
+    domain: 'log4jmemes.com',
+    points: 351,
+    submittedBy: 'MalacodaV',
+    timestamp: '2 hours ago',
+    commentCount: 62,
+  },
+];
+
 export default function HackerNews() {
   return (
     <div>
       <Head>
         <title>Mike Bowman | Hacker News</title>
       </Head>
-      <InProgress />
+      {/* <InProgress /> */}
       <header className="bg-orange-500 py-1 flex justify-between items-center">
         <div className="flex items-center">
           <img
@@ -19,17 +32,28 @@ export default function HackerNews() {
           <div className="inline-block leading-snug">
             <p className="font-extrabold">Hacker News</p>
             <p className="text-xs">
-              <a href="#">new</a> | <a href="#">past</a> |{' '}
-              <a href="#">comments</a> | <a href="#">ask</a> |{' '}
-              <a href="#">show</a> | <a href="#">jobs</a> |{' '}
-              <a href="#">submit</a>
+              {navLinks
+                .map((link) => (
+                  <a href="#" key={link}>
+                    {link}
+                  </a>
+                ))
+                .reduce(
+                  (acc, item) =>
+                    acc === null
+                      ? [item]
+                      : [acc, <span className="mx-1"> | </span>, item],
+                  null
+                )}
             </p>
           </div>
         </div>
         <p className="text-xs mr-2">login</p>
       </header>
       <main className="bg-orange-100 bg-opacity-40">
-        <div className="py-12">Content!</div>
+        {posts.map((post) => (
+          <div>{post.title}</div>
+        ))}
       </main>
     </div>
   );
