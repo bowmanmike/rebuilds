@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp;
 
-MyApp.propTypes = {
-  Component: PropTypes.object,
-  pageProps: PropTypes.object,
-};
+// MyApp.propTypes = {
+//   Component: PropTypes.object,
+//   pageProps: PropTypes.object,
+// };
