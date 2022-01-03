@@ -94,9 +94,9 @@ export default function HackerNews() {
       {/* TODO: Fix BG colour */}
       <main className="bg-yellow-50 bg-opacity-70 py-2 px-2">
         {posts.map((post, i) => (
-          <div className="grid grid-flow-col" key={post.title}>
+          <div className="flex mb-2" key={post.title}>
             <div className="text-zinc-500 flex">
-              <span>{i + 1}. </span>
+              <span className="">{i + 1}. </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -115,16 +115,16 @@ export default function HackerNews() {
                 <a href="#" className="hover:underline">
                   {post.title}
                 </a>
-                <span className="text-xs text-gray-400 ml-1">
+                <span className="text-xs text-gray-500 ml-1">
                   {post.domain && (
                     <a href="#" className="hover:underline">
-                      {post.domain}
+                      ({post.domain})
                     </a>
                   )}
                 </span>
               </p>
-              <p>
-                {post.points} by{' '}
+              <p className="text-xs text-gray-500">
+                {post.points} points by{' '}
                 <a href="#" className="hover:underline">
                   {post.submittedBy}
                 </a>{' '}
